@@ -12,14 +12,14 @@ app.use(express.json());
 app.use(cors());
 
 const tasks = require('./routes/api/tasks')
-app.use('/api/tasks',tasks);
+app.use('/api/tasks', tasks);
 
 
 // handle production 
 
-if(process.env.NODE_ENV === 'production' ){
+if (process.env.NODE_ENV === 'production') {
 
-    app.use(express.static(__dirname +'/public/'));
+    app.use(express.static(__dirname + '/public/'));
 
     // Try not to skip syntax
     // Don't trade less lines for readability
@@ -28,6 +28,8 @@ if(process.env.NODE_ENV === 'production' ){
         ));
 }
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || "5000;";
+
 
 app.listen(port, () => console.log(`server started on port ${port}`));
+app.set("port", PORT);
