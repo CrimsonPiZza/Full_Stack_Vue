@@ -5,6 +5,9 @@ const cors = require('cors');
 const app = express();
 
 // middleware
+
+// You need not to use body-parser
+// Express already has a built in parsing function
 app.use(express.json());
 app.use(cors());
 
@@ -18,6 +21,8 @@ if(process.env.NODE_ENV === 'production' ){
 
     app.use(express.static(__dirname +'/public/'));
 
+    // Try not to skip syntax
+    // Don't trade less lines for readability
     app.get(/.*/,(
         (req,res)=> res.sendFile(__dirname + '/public/index.html')
         ));
